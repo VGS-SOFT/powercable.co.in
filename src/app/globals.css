@@ -1,10 +1,101 @@
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: 'Inter', sans-serif;
+    --font-playfair: 'Playfair Display', serif;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #0f0a00;
+    color: #ffffff;
+    font-family: var(--font-inter), sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-playfair), serif;
+    line-height: 1.2;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0f0a00;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #b87333;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #d4a96a;
+  }
 }
 
-body {
-  background: #f7f6f2;
-  color: #28251d;
+@layer components {
+  /* Grid texture overlay */
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(184,115,51,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(184,115,51,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Copper gradient text */
+  .text-copper-gradient {
+    background: linear-gradient(135deg, #b87333 0%, #d4a96a 50%, #b87333 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Copper shimmer effect */
+  .copper-shimmer {
+    background: linear-gradient(90deg, #b87333 0%, #d4a96a 50%, #b87333 100%);
+    background-size: 200% auto;
+    animation: shimmer 2s infinite;
+  }
+
+  /* Section padding */
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-16 lg:py-24;
+  }
+
+  /* Container max width */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Card base */
+  .card-dark {
+    @apply bg-dark-100 border border-copper-900 rounded-2xl;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+  }
+
+  /* Copper divider */
+  .copper-divider {
+    @apply w-16 h-1 rounded-full;
+    background: linear-gradient(90deg, #b87333, #d4a96a);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 }

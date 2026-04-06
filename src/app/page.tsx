@@ -9,10 +9,11 @@ export default function Home() {
         fontFamily: 'sans-serif',
         fontSize: '2rem',
         fontWeight: 'bold',
-        color: '#964219',
+        color: '#b87333',
+        background: '#0f0a00',
       }}
     >
-      Hey I&apos;m working 🚀
+      Phase 1 Complete — Building Phase 2 🚀
     </main>
   );
 }
