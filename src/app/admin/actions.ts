@@ -1,6 +1,7 @@
 'use server';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
+import { revalidatePath } from 'next/cache';
 import { createServerClient } from '@/lib/supabase';
 
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD ?? 'powercable2024';
@@ -37,10 +38,12 @@ export async function logoutAction() {
 export async function markLeadReadAction(id: string) {
   const db = createServerClient();
   await db.from('leads').update({ is_read: true }).eq('id', id);
+  revalidatePath('/admin/leads');  // ← instantly re-renders the page
 }
 
 // Delete lead
 export async function deleteLeadAction(id: string) {
   const db = createServerClient();
   await db.from('leads').delete().eq('id', id);
+  revalidatePath('/admin/leads');  // ← instantly re-renders the page
 }
