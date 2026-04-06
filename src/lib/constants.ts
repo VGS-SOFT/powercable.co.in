@@ -14,25 +14,25 @@ export const PRODUCTS = [
     slug:      'copper-ingots',
     name:      'Copper Ingots',
     shortDesc: 'Superior purity copper ingots for manufacturing and industrial applications.',
-    image:     '/images/copper-ingots.jpg',
+    image:     'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=80',
   },
   {
     slug:      'copper-strips',
     name:      'Copper Strips',
     shortDesc: 'Premium copper strips for electrical, industrial, and construction applications.',
-    image:     '/images/copper-strips.jpg',
+    image:     'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80',
   },
   {
     slug:      'copper-wire',
     name:      'Copper Wire',
     shortDesc: 'High-quality copper wire for electrical and industrial needs.',
-    image:     '/images/copper-wire.jpg',
+    image:     'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&auto=format&fit=crop&q=80',
   },
   {
     slug:      'copper-rod',
     name:      'Copper Rod',
     shortDesc: 'Top-grade copper rods for manufacturing and industrial applications.',
-    image:     '/images/copper-rod.jpg',
+    image:     'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=600&auto=format&fit=crop&q=80',
   },
 ];
 
@@ -41,19 +41,19 @@ export const RAW_MATERIALS = [
     slug:      'copper-druid',
     name:      'Copper Druid',
     shortDesc: 'High-purity refined copper with 99.9% copper content for industrial applications.',
-    image:     '/images/copper-druid.jpg',
+    image:     'https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?w=600&auto=format&fit=crop&q=80',
   },
   {
     slug:      'copper-scrap-birch',
     name:      'Copper Scrap Birch',
     shortDesc: 'High-grade copper scrap with 94-96% copper content for recycling and refining.',
-    image:     '/images/copper-scrap-birch.jpg',
+    image:     'https://images.unsplash.com/photo-1567789884554-0b844b597180?w=600&auto=format&fit=crop&q=80',
   },
   {
     slug:      'all-copper-scrap',
     name:      'All Copper Scrap',
     shortDesc: '100% recyclable copper scrap for sustainable and cost-effective manufacturing.',
-    image:     '/images/all-copper-scrap.jpg',
+    image:     'https://images.unsplash.com/photo-1581093458791-9d15482442f6?w=600&auto=format&fit=crop&q=80',
   },
 ];
 

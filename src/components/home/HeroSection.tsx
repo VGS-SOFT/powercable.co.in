@@ -58,7 +58,8 @@ export default function HeroSection() {
                 alt="Premium copper products — copper wire and industrial copper"
                 width={600}
                 height={420}
-                className="w-full h-[420px] object-cover"
+                style={{ width: '100%', height: 'auto' }}
+                className="object-cover"
                 priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-dark-400/60 to-transparent" />

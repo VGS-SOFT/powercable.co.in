@@ -43,7 +43,14 @@ export default function ProductLayout({
         {/* Hero */}
         <section className="relative min-h-[60vh] flex items-end grid-bg overflow-hidden pt-20">
           <div className="absolute inset-0">
-            <Image src={heroImage} alt={name} fill className="object-cover opacity-20" priority />
+            <Image
+              src={heroImage}
+              alt={name}
+              fill
+              sizes="100vw"
+              className="object-cover opacity-20"
+              priority
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-dark-400 via-dark-400/70 to-dark-400/30" />
           </div>
           <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-copper-800/20 rounded-full blur-3xl pointer-events-none" />
@@ -173,7 +180,13 @@ export default function ProductLayout({
                 className="group card-dark rounded-2xl overflow-hidden hover:border-copper-700 hover:shadow-copper transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="relative h-40 overflow-hidden">
-                  <Image src={p.image} alt={p.name} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <Image
+                    src={p.image}
+                    alt={p.name}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-dark-100/90 to-transparent" />
                 </div>
                 <div className="p-4">

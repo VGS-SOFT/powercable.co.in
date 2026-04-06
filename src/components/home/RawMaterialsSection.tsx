@@ -27,6 +27,7 @@ export default function RawMaterialsSection() {
                 src={material.image}
                 alt={material.name}
                 fill
+                sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-dark-100/90 via-dark-100/30 to-transparent" />
