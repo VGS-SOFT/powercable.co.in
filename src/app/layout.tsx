@@ -76,7 +76,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+    // data-scroll-behavior="smooth" tells Next.js 16 not to remove smooth scrolling
+    // during route transitions — fixes the console warning.
+    <html lang="en" className={`${inter.variable} ${playfair.variable}`} data-scroll-behavior="smooth">
       <body className="bg-dark-400 text-white antialiased">
         <OrganizationJsonLd />
         {children}

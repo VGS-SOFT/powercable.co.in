@@ -8,7 +8,7 @@ import SectionHeader from '@/components/ui/SectionHeader';
 import { PRODUCTS } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Copper Products — Ingots, Strips, Wire & Rod',
+  title: 'Copper Products \u2014 Ingots, Strips, Wire & Rod',
   description:
     'Explore our premium range of copper products including Copper Ingots, Copper Strips, Copper Wire, and Copper Rods. 99.5%+ purity, competitive pricing.',
   alternates: { canonical: 'https://www.powercable.co.in/products' },
@@ -42,14 +42,20 @@ export default function ProductsPage() {
                 className="group card-dark rounded-2xl overflow-hidden hover:border-copper-700 hover:shadow-copper transition-all duration-300 hover:-translate-y-1 flex flex-col sm:flex-row"
               >
                 <div className="relative w-full sm:w-48 h-48 sm:h-auto shrink-0 overflow-hidden">
-                  <Image src={product.image} alt={product.name} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 192px"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent to-dark-100/50" />
                 </div>
                 <div className="p-6 flex flex-col justify-center">
                   <h2 className="font-display text-xl font-bold text-white mb-2 group-hover:text-copper-400 transition-colors">{product.name}</h2>
                   <p className="text-white/50 text-sm leading-relaxed mb-4">{product.shortDesc}</p>
                   <span className="inline-flex items-center gap-2 text-copper-400 text-sm font-semibold group-hover:gap-3 transition-all">
-                    View Details →
+                    View Details \u2192
                   </span>
                 </div>
               </Link>
