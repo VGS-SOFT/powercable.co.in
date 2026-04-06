@@ -1,20 +1,33 @@
+import type { Metadata } from 'next';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import HeroSection from '@/components/home/HeroSection';
+import ProductsSection from '@/components/home/ProductsSection';
+import RawMaterialsSection from '@/components/home/RawMaterialsSection';
+import WhyUsSection from '@/components/home/WhyUsSection';
+import ReviewsSection from '@/components/home/ReviewsSection';
+import CtaBanner from '@/components/home/CtaBanner';
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: 'Power Cable — Premium Copper Products Dealer in Maharashtra',
+  description:
+    'Power Cable is a trusted dealer of premium copper products including Copper Ingots, Copper Strips, Copper Wire, and Copper Rods. 99.5%+ purity, competitive pricing, pan-India delivery. Based in Palghar, Maharashtra.',
+  alternates: {
+    canonical: 'https://www.powercable.co.in',
+  },
+};
+
+export default function HomePage() {
   return (
     <>
       <Navbar />
-      <main
-        className="grid-bg min-h-screen flex items-center justify-center"
-        style={{ paddingTop: '80px' }}
-      >
-        <div className="text-center">
-          <h1 className="font-display text-5xl font-bold text-copper-gradient mb-4">
-            Phase 2 Complete
-          </h1>
-          <p className="text-white/60 text-xl">Navbar &amp; Footer are ready 🚀</p>
-        </div>
+      <main>
+        <HeroSection />
+        <ProductsSection />
+        <RawMaterialsSection />
+        <WhyUsSection />
+        <ReviewsSection />
+        <CtaBanner />
       </main>
       <Footer />
     </>
