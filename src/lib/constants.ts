@@ -4,35 +4,35 @@ export const SITE_URL  = 'https://www.powercable.co.in';
 export const CONTACT = {
   phone:   '(+91) 99879 94910',
   email:   'powercable@myyahoo.com',
-  address: 'Ground Floor, 1183/2, Nirmal Yash Apartment, Wada – Bhiwandi Road, Kudus, Palghar, Maharashtra – 421312',
-  hours:   'Monday – Saturday, 10:00 AM to 6:00 PM',
+  address: 'Ground Floor, 1183/2, Nirmal Yash Apartment, Wada \u2013 Bhiwandi Road, Kudus, Palghar, Maharashtra \u2013 421312',
+  hours:   'Monday \u2013 Saturday, 10:00 AM to 6:00 PM',
   gstin:   '27AKGPP9157K1ZG',
 };
 
 export const PRODUCTS = [
   {
-    slug:        'copper-ingots',
-    name:        'Copper Ingots',
-    shortDesc:   'Superior purity copper ingots for manufacturing and industrial applications.',
-    image:       'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&auto=format&fit=crop',
+    slug:      'copper-ingots',
+    name:      'Copper Ingots',
+    shortDesc: 'Superior purity copper ingots for manufacturing and industrial applications.',
+    image:     '/images/copper-ingots.jpg',
   },
   {
-    slug:        'copper-strips',
-    name:        'Copper Strips',
-    shortDesc:   'Premium copper strips for electrical, industrial, and construction applications.',
-    image:       'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&auto=format&fit=crop',
+    slug:      'copper-strips',
+    name:      'Copper Strips',
+    shortDesc: 'Premium copper strips for electrical, industrial, and construction applications.',
+    image:     '/images/copper-strips.jpg',
   },
   {
-    slug:        'copper-wire',
-    name:        'Copper Wire',
-    shortDesc:   'High-quality copper wire for electrical and industrial needs.',
-    image:       'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop',
+    slug:      'copper-wire',
+    name:      'Copper Wire',
+    shortDesc: 'High-quality copper wire for electrical and industrial needs.',
+    image:     '/images/copper-wire.jpg',
   },
   {
-    slug:        'copper-rod',
-    name:        'Copper Rod',
-    shortDesc:   'Top-grade copper rods for manufacturing and industrial applications.',
-    image:       'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&auto=format&fit=crop',
+    slug:      'copper-rod',
+    name:      'Copper Rod',
+    shortDesc: 'Top-grade copper rods for manufacturing and industrial applications.',
+    image:     '/images/copper-rod.jpg',
   },
 ];
 
@@ -41,19 +41,19 @@ export const RAW_MATERIALS = [
     slug:      'copper-druid',
     name:      'Copper Druid',
     shortDesc: 'High-purity refined copper with 99.9% copper content for industrial applications.',
-    image:     'https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?w=800&auto=format&fit=crop',
+    image:     '/images/copper-druid.jpg',
   },
   {
     slug:      'copper-scrap-birch',
     name:      'Copper Scrap Birch',
     shortDesc: 'High-grade copper scrap with 94-96% copper content for recycling and refining.',
-    image:     'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&auto=format&fit=crop',
+    image:     '/images/copper-scrap-birch.jpg',
   },
   {
     slug:      'all-copper-scrap',
     name:      'All Copper Scrap',
     shortDesc: '100% recyclable copper scrap for sustainable and cost-effective manufacturing.',
-    image:     'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&auto=format&fit=crop',
+    image:     '/images/all-copper-scrap.jpg',
   },
 ];
 

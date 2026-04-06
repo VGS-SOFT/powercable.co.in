@@ -8,30 +8,30 @@ import SectionHeader from '@/components/ui/SectionHeader';
 import Button from '@/components/ui/Button';
 
 export const metadata: Metadata = {
-  title: 'About Us — Power Cable | Premium Copper Products',
+  title: 'About Us \u2014 Power Cable | Premium Copper Products',
   description:
-    'Learn about Power Cable — a trusted dealer and manufacturer of premium copper products based in Palghar, Maharashtra. Our vision, mission, and commitment to quality.',
+    'Learn about Power Cable \u2014 a trusted dealer and manufacturer of premium copper products based in Palghar, Maharashtra. Our vision, mission, and commitment to quality.',
   alternates: { canonical: 'https://www.powercable.co.in/about' },
 };
 
 const values = [
   {
-    icon: '🏆',
+    icon: '\ud83c\udfc6',
     title: 'Superior Quality',
     desc: 'We adhere to international quality standards to provide cables and copper products that guarantee safety and efficiency in every application.',
   },
   {
-    icon: '🔬',
+    icon: '\ud83d\udd2c',
     title: 'Innovation & Technology',
     desc: 'We leverage advanced manufacturing techniques to produce copper products that meet evolving industry needs and performance standards.',
   },
   {
-    icon: '🌍',
+    icon: '\ud83c\udf0d',
     title: 'Wide Range of Applications',
     desc: 'From industrial projects to residential wiring, we offer copper products suitable for virtually every application and sector.',
   },
   {
-    icon: '🤝',
+    icon: '\ud83e\udd1d',
     title: 'Customer-Centric Approach',
     desc: 'Our clients are at the heart of our business. We strive to provide exceptional service, tailored solutions, and responsive support.',
   },
@@ -97,8 +97,8 @@ export default function AboutPage() {
             <div className="relative">
               <div className="rounded-2xl overflow-hidden border border-copper-800/50 shadow-copper-lg">
                 <Image
-                  src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&auto=format&fit=crop&q=80"
-                  alt="Power Cable — premium copper manufacturing"
+                  src="/images/about-commitment.jpg"
+                  alt="Power Cable \u2014 premium copper manufacturing"
                   width={600}
                   height={400}
                   className="w-full h-[400px] object-cover"
@@ -107,7 +107,7 @@ export default function AboutPage() {
               </div>
               <div className="absolute -bottom-5 -right-5 card-dark px-5 py-4 rounded-2xl">
                 <p className="text-copper-gradient font-display text-xl font-bold">Est. Maharashtra</p>
-                <p className="text-white/50 text-xs mt-0.5">Palghar — Pan-India Delivery</p>
+                <p className="text-white/50 text-xs mt-0.5">Palghar \u2014 Pan-India Delivery</p>
               </div>
             </div>
             <div>
@@ -117,16 +117,16 @@ export default function AboutPage() {
                 highlight="& Sustainability"
               />
               <p className="text-white/60 leading-relaxed mb-6">
-                We understand that reliable power transmission is crucial for modern infrastructure. That’s why we prioritize quality, innovation, and sustainability in all our products.
+                We understand that reliable power transmission is crucial for modern infrastructure. That\u2019s why we prioritize quality, innovation, and sustainability in all our products.
               </p>
               <p className="text-white/60 leading-relaxed mb-8">
                 Our copper products are engineered to withstand extreme conditions, ensuring long-lasting performance and safety across all industrial and residential applications.
               </p>
               <div className="flex items-center gap-3 p-4 card-dark rounded-xl border-copper-700">
-                <span className="text-2xl">📍</span>
+                <span className="text-2xl">\ud83d\udccd</span>
                 <div>
                   <p className="text-white font-semibold text-sm">Ground Floor, 1183/2, Nirmal Yash Apartment</p>
-                  <p className="text-white/50 text-xs">Wada – Bhiwandi Road, Kudus, Palghar, Maharashtra – 421312</p>
+                  <p className="text-white/50 text-xs">Wada \u2013 Bhiwandi Road, Kudus, Palghar, Maharashtra \u2013 421312</p>
                 </div>
               </div>
             </div>
@@ -157,7 +157,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="card-dark rounded-2xl p-8 hover:border-copper-700 hover:shadow-copper transition-all">
               <div className="w-12 h-12 rounded-full bg-copper-gradient flex items-center justify-center mb-4 shadow-copper">
-                <span className="text-white text-xl">👁️</span>
+                <span className="text-white text-xl">\ud83d\udc41\ufe0f</span>
               </div>
               <h2 className="font-display text-2xl font-bold text-white mb-4">Our <span className="text-copper-gradient">Vision</span></h2>
               <div className="copper-divider mb-4" />
@@ -167,7 +167,7 @@ export default function AboutPage() {
             </div>
             <div className="card-dark rounded-2xl p-8 hover:border-copper-700 hover:shadow-copper transition-all">
               <div className="w-12 h-12 rounded-full bg-copper-gradient flex items-center justify-center mb-4 shadow-copper">
-                <span className="text-white text-xl">🎯</span>
+                <span className="text-white text-xl">\ud83c\udfaf</span>
               </div>
               <h2 className="font-display text-2xl font-bold text-white mb-4">Our <span className="text-copper-gradient">Mission</span></h2>
               <div className="copper-divider mb-4" />
