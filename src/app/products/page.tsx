@@ -55,7 +55,7 @@ export default function ProductsPage() {
                   <h2 className="font-display text-xl font-bold text-white mb-2 group-hover:text-copper-400 transition-colors">{product.name}</h2>
                   <p className="text-white/50 text-sm leading-relaxed mb-4">{product.shortDesc}</p>
                   <span className="inline-flex items-center gap-2 text-copper-400 text-sm font-semibold group-hover:gap-3 transition-all">
-                    View Details \u2192
+                    View Details →
                   </span>
                 </div>
               </Link>
