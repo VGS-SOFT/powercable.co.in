@@ -52,10 +52,10 @@ export default function HeroSection() {
 
           {/* Right — Image card stack */}
           <div className="relative hidden lg:block">
-            {/* Main image */}
+            {/* Main image — local file, no external host needed */}
             <div className="relative rounded-2xl overflow-hidden border border-copper-800/50 shadow-copper-lg">
               <Image
-                src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&auto=format&fit=crop&q=80"
+                src="/images/hero-copper.jpg"
                 alt="Premium copper products — copper wire and industrial copper"
                 width={600}
                 height={420}
