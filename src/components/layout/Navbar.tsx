@@ -27,6 +27,54 @@ const CloseIcon = () => (
   </svg>
 );
 
+/* Copper wordmark SVG logo — no image dependency */
+const WordmarkLogo = () => (
+  <svg
+    viewBox="0 0 200 36"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-label="Power Cable"
+    className="h-8 w-auto"
+  >
+    {/* Copper bolt/wave accent mark */}
+    <path
+      d="M6 4 L14 4 L10 16 L17 16 L8 32 L12 20 L5 20 Z"
+      fill="url(#copperGrad)"
+    />
+    {/* POWER text */}
+    <text
+      x="22"
+      y="22"
+      fontFamily="Georgia, 'Times New Roman', serif"
+      fontSize="16"
+      fontWeight="700"
+      letterSpacing="2"
+      fill="#e8c49a"
+    >
+      POWER
+    </text>
+    {/* CABLE text — slightly lighter */}
+    <text
+      x="22"
+      y="33"
+      fontFamily="Georgia, 'Times New Roman', serif"
+      fontSize="10"
+      fontWeight="400"
+      letterSpacing="5"
+      fill="#c8935a"
+    >
+      CABLE
+    </text>
+    <defs>
+      <linearGradient id="copperGrad" x1="5" y1="4" x2="17" y2="32" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stopColor="#e8c49a" />
+        <stop offset="50%" stopColor="#c8753a" />
+        <stop offset="100%" stopColor="#8b4513" />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
 export default function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled]           = useState(false);
@@ -58,17 +106,9 @@ export default function Navbar() {
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 lg:h-20">
 
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-copper-gradient flex items-center justify-center shadow-copper">
-              <span className="text-white font-bold text-sm">PC</span>
-            </div>
-            <div>
-              <span className="font-display font-bold text-white text-lg group-hover:text-copper-400 transition-colors">
-                POWER CABLE
-              </span>
-              <p className="text-copper-500 text-xs leading-none hidden sm:block">Premium Copper Products</p>
-            </div>
+          {/* Wordmark Logo — no image file needed */}
+          <Link href="/" className="group hover:opacity-90 transition-opacity">
+            <WordmarkLogo />
           </Link>
 
           {/* Desktop Nav */}

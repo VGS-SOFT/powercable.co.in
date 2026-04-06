@@ -1,4 +1,5 @@
 'use server';
+import { Resend } from 'resend';
 
 export type FormState = {
   success: boolean;
@@ -15,27 +16,72 @@ export async function submitContactForm(
   const phone   = formData.get('phone')?.toString().trim() ?? '';
   const message = formData.get('message')?.toString().trim() ?? '';
 
+  // --- Validation ---
   const errors: Record<string, string> = {};
-
-  if (!name || name.length < 2)
-    errors.name = 'Please enter your full name.';
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-    errors.email = 'Please enter a valid email address.';
-  if (!phone || phone.length < 10)
-    errors.phone = 'Please enter a valid phone number.';
-  if (!message || message.length < 10)
-    errors.message = 'Please enter a message (min 10 characters).';
+  if (!name || name.length < 2)    errors.name    = 'Please enter your full name.';
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.email = 'Please enter a valid email address.';
+  if (!phone || phone.length < 10) errors.phone   = 'Please enter a valid phone number.';
+  if (!message || message.length < 10) errors.message = 'Please enter a message (min 10 characters).';
 
   if (Object.keys(errors).length > 0) {
     return { success: false, message: 'Please fix the errors below.', errors };
   }
 
-  // TODO: integrate email service (Nodemailer / Resend) here
-  // For now, we simulate success
-  console.log('Contact form submission:', { name, email, phone, message });
+  // --- Send email via Resend ---
+  const apiKey = process.env.RESEND_API_KEY;
+
+  if (apiKey) {
+    try {
+      const resend = new Resend(apiKey);
+
+      // 1. Notify Power Cable team
+      await resend.emails.send({
+        from:    'Power Cable Website <noreply@powercable.co.in>',
+        to:      [process.env.CONTACT_EMAIL ?? 'your@email.com'],
+        subject: `New Lead from Website: ${name}`,
+        html: `
+          <div style="font-family:sans-serif;max-width:600px;margin:0 auto;">
+            <h2 style="color:#c8753a;">New Contact Form Submission</h2>
+            <table style="width:100%;border-collapse:collapse;">
+              <tr><td style="padding:8px;font-weight:bold;color:#666;">Name</td><td style="padding:8px;">${name}</td></tr>
+              <tr style="background:#f9f9f9;"><td style="padding:8px;font-weight:bold;color:#666;">Email</td><td style="padding:8px;"><a href="mailto:${email}">${email}</a></td></tr>
+              <tr><td style="padding:8px;font-weight:bold;color:#666;">Phone</td><td style="padding:8px;"><a href="tel:${phone}">${phone}</a></td></tr>
+              <tr style="background:#f9f9f9;"><td style="padding:8px;font-weight:bold;color:#666;vertical-align:top;">Message</td><td style="padding:8px;">${message.replace(/\n/g, '<br/>')}</td></tr>
+            </table>
+            <p style="margin-top:24px;color:#999;font-size:12px;">Submitted via powercable.co.in contact form</p>
+          </div>
+        `,
+      });
+
+      // 2. Auto-reply to the customer
+      await resend.emails.send({
+        from:    'Power Cable <noreply@powercable.co.in>',
+        to:      [email],
+        subject: 'Thank you for contacting Power Cable',
+        html: `
+          <div style="font-family:sans-serif;max-width:600px;margin:0 auto;">
+            <h2 style="color:#c8753a;">Thank you, ${name}!</h2>
+            <p>We have received your message and will get back to you within 24 hours.</p>
+            <p style="color:#666;"><strong>Your message:</strong><br/>${message.replace(/\n/g, '<br/>')}</p>
+            <hr style="border:none;border-top:1px solid #eee;margin:24px 0;"/>
+            <p style="font-size:13px;color:#999;">
+              Power Cable &mdash; Premium Copper Products<br/>
+              Palghar, Maharashtra &mdash; <a href="tel:+919987994910">+91 99879 94910</a>
+            </p>
+          </div>
+        `,
+      });
+    } catch (err) {
+      console.error('Resend error:', err);
+      // Still return success to the user — don\'t fail on email error
+    }
+  } else {
+    // No API key — log to console (dev mode)
+    console.log('Contact form submission (no RESEND_API_KEY set):', { name, email, phone, message });
+  }
 
   return {
     success: true,
-    message: `Thank you, ${name}! We\'ve received your message and will get back to you within 24 hours.`,
+    message: `Thank you, ${name}! We've received your message and will get back to you within 24 hours.`,
   };
 }

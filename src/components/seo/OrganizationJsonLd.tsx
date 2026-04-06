@@ -6,7 +6,6 @@ export default function OrganizationJsonLd() {
     '@type': 'Organization',
     name: SITE_NAME,
     url: SITE_URL,
-    logo: `${SITE_URL}/logo.png`,
     description:
       'Power Cable is a leading dealer and manufacturer of premium-grade copper products including Copper Ingots, Copper Strips, Copper Wire, and Copper Rods. Based in Palghar, Maharashtra, India.',
     address: {
@@ -22,26 +21,14 @@ export default function OrganizationJsonLd() {
       telephone: CONTACT.phone,
       contactType: 'sales',
       availableLanguage: ['English', 'Hindi', 'Marathi'],
-      hoursAvailable: {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-        opens: '10:00',
-        closes: '18:00',
-      },
     },
     email: CONTACT.email,
     taxID: CONTACT.gstin,
     areaServed: 'India',
     knowsAbout: [
-      'Copper Ingots',
-      'Copper Strips',
-      'Copper Wire',
-      'Copper Rod',
-      'Copper Scrap',
-      'Copper Druid',
-      'Copper Scrap Birch',
+      'Copper Ingots', 'Copper Strips', 'Copper Wire',
+      'Copper Rod', 'Copper Scrap', 'Copper Druid', 'Copper Scrap Birch',
     ],
-    sameAs: [],
   };
 
   return (
