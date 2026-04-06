@@ -1,5 +1,6 @@
 'use server';
 import { Resend } from 'resend';
+import { createServerClient } from '@/lib/supabase';
 
 export type FormState = {
   success: boolean;
@@ -18,27 +19,37 @@ export async function submitContactForm(
 
   // --- Validation ---
   const errors: Record<string, string> = {};
-  if (!name || name.length < 2)    errors.name    = 'Please enter your full name.';
+  if (!name || name.length < 2)        errors.name    = 'Please enter your full name.';
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.email = 'Please enter a valid email address.';
-  if (!phone || phone.length < 10) errors.phone   = 'Please enter a valid phone number.';
+  if (!phone || phone.length < 10)     errors.phone   = 'Please enter a valid phone number.';
   if (!message || message.length < 10) errors.message = 'Please enter a message (min 10 characters).';
 
   if (Object.keys(errors).length > 0) {
     return { success: false, message: 'Please fix the errors below.', errors };
   }
 
-  // --- Send email via Resend ---
-  const apiKey = process.env.RESEND_API_KEY;
+  // --- 1. Save lead to Supabase ---
+  try {
+    const db = createServerClient();
+    const { error } = await db
+      .from('leads')
+      .insert({ name, email, phone, message });
+    if (error) console.error('Supabase insert error:', error);
+  } catch (err) {
+    console.error('Supabase error:', err);
+    // Non-fatal — still continue to send email
+  }
 
+  // --- 2. Send email via Resend ---
+  const apiKey = process.env.RESEND_API_KEY;
   if (apiKey) {
     try {
       const resend = new Resend(apiKey);
 
-      // 1. Notify Power Cable team
       await resend.emails.send({
         from:    'Power Cable Website <noreply@powercable.co.in>',
         to:      [process.env.CONTACT_EMAIL ?? 'your@email.com'],
-        subject: `New Lead from Website: ${name}`,
+        subject: `New Lead: ${name}`,
         html: `
           <div style="font-family:sans-serif;max-width:600px;margin:0 auto;">
             <h2 style="color:#c8753a;">New Contact Form Submission</h2>
@@ -48,12 +59,11 @@ export async function submitContactForm(
               <tr><td style="padding:8px;font-weight:bold;color:#666;">Phone</td><td style="padding:8px;"><a href="tel:${phone}">${phone}</a></td></tr>
               <tr style="background:#f9f9f9;"><td style="padding:8px;font-weight:bold;color:#666;vertical-align:top;">Message</td><td style="padding:8px;">${message.replace(/\n/g, '<br/>')}</td></tr>
             </table>
-            <p style="margin-top:24px;color:#999;font-size:12px;">Submitted via powercable.co.in contact form</p>
+            <p style="margin-top:16px;color:#999;font-size:12px;">Also saved to admin dashboard at /admin/leads</p>
           </div>
         `,
       });
 
-      // 2. Auto-reply to the customer
       await resend.emails.send({
         from:    'Power Cable <noreply@powercable.co.in>',
         to:      [email],
@@ -73,15 +83,11 @@ export async function submitContactForm(
       });
     } catch (err) {
       console.error('Resend error:', err);
-      // Still return success to the user — don\'t fail on email error
     }
-  } else {
-    // No API key — log to console (dev mode)
-    console.log('Contact form submission (no RESEND_API_KEY set):', { name, email, phone, message });
   }
 
   return {
     success: true,
-    message: `Thank you, ${name}! We've received your message and will get back to you within 24 hours.`,
+    message: `Thank you, ${name}! We\u2019ve received your message and will get back to you within 24 hours.`,
   };
 }
