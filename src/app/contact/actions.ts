@@ -58,7 +58,7 @@ export async function submitContactForm(
       const resend = new Resend(apiKey);
 
       await resend.emails.send({
-        from:    'Power Cable Website <noreply@powercable.co.in>',
+        from:    'Power Cable Website <noreply@powercable.vrajvithalani.com>',
         to:      [process.env.CONTACT_EMAIL ?? 'your@email.com'],
         subject: `New Lead: ${esc(name)}`,
         html: `
