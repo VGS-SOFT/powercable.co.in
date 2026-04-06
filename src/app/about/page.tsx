@@ -16,22 +16,22 @@ export const metadata: Metadata = {
 
 const values = [
   {
-    icon: '\ud83c\udfc6',
+    icon: '🏆',
     title: 'Superior Quality',
     desc: 'We adhere to international quality standards to provide cables and copper products that guarantee safety and efficiency in every application.',
   },
   {
-    icon: '\ud83d\udd2c',
+    icon: '🔬',
     title: 'Innovation & Technology',
     desc: 'We leverage advanced manufacturing techniques to produce copper products that meet evolving industry needs and performance standards.',
   },
   {
-    icon: '\ud83c\udf0d',
+    icon: '🌍',
     title: 'Wide Range of Applications',
     desc: 'From industrial projects to residential wiring, we offer copper products suitable for virtually every application and sector.',
   },
   {
-    icon: '\ud83e\udd1d',
+    icon: '🤝',
     title: 'Customer-Centric Approach',
     desc: 'Our clients are at the heart of our business. We strive to provide exceptional service, tailored solutions, and responsive support.',
   },
@@ -117,13 +117,13 @@ export default function AboutPage() {
                 highlight="& Sustainability"
               />
               <p className="text-white/60 leading-relaxed mb-6">
-                We understand that reliable power transmission is crucial for modern infrastructure. That\u2019s why we prioritize quality, innovation, and sustainability in all our products.
+                We understand that reliable power transmission is crucial for modern infrastructure. That&apos;s why we prioritize quality, innovation, and sustainability in all our products.
               </p>
               <p className="text-white/60 leading-relaxed mb-8">
                 Our copper products are engineered to withstand extreme conditions, ensuring long-lasting performance and safety across all industrial and residential applications.
               </p>
               <div className="flex items-center gap-3 p-4 card-dark rounded-xl border-copper-700">
-                <span className="text-2xl">\ud83d\udccd</span>
+                <span className="text-2xl">📍</span>
                 <div>
                   <p className="text-white font-semibold text-sm">Ground Floor, 1183/2, Nirmal Yash Apartment</p>
                   <p className="text-white/50 text-xs">Wada \u2013 Bhiwandi Road, Kudus, Palghar, Maharashtra \u2013 421312</p>
@@ -157,7 +157,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="card-dark rounded-2xl p-8 hover:border-copper-700 hover:shadow-copper transition-all">
               <div className="w-12 h-12 rounded-full bg-copper-gradient flex items-center justify-center mb-4 shadow-copper">
-                <span className="text-white text-xl">\ud83d\udc41\ufe0f</span>
+                <span className="text-white text-xl">👁️</span>
               </div>
               <h2 className="font-display text-2xl font-bold text-white mb-4">Our <span className="text-copper-gradient">Vision</span></h2>
               <div className="copper-divider mb-4" />
@@ -167,7 +167,7 @@ export default function AboutPage() {
             </div>
             <div className="card-dark rounded-2xl p-8 hover:border-copper-700 hover:shadow-copper transition-all">
               <div className="w-12 h-12 rounded-full bg-copper-gradient flex items-center justify-center mb-4 shadow-copper">
-                <span className="text-white text-xl">\ud83c\udfaf</span>
+                <span className="text-white text-xl">🎯</span>
               </div>
               <h2 className="font-display text-2xl font-bold text-white mb-4">Our <span className="text-copper-gradient">Mission</span></h2>
               <div className="copper-divider mb-4" />
