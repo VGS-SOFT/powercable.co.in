@@ -53,7 +53,7 @@ export const RAW_MATERIALS = [
     slug:      'all-copper-scrap',
     name:      'All Copper Scrap',
     shortDesc: '100% recyclable copper scrap for sustainable and cost-effective manufacturing.',
-    image:     'https://images.unsplash.com/photo-1581093458791-9d15482442f6?w=600&auto=format&fit=crop&q=80',
+    image:     'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600&auto=format&fit=crop&q=80',
   },
 ];
 
